@@ -1,15 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Download, MessageCircle } from "lucide-react";
-const Z_LOGO_URL = "/z-logo.png";
+import { Download, MessageCircle, Infinity as InfinityIcon, Zap, ShieldCheck, Rocket } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MiExtensión — Potencia tu navegador" },
-      { name: "description", content: "Descarga MiExtensión por $15/mes y únete a nuestra comunidad de Discord." },
-      { property: "og:title", content: "MiExtensión — Potencia tu navegador" },
-      { property: "og:description", content: "Descarga MiExtensión por $15/mes y únete a nuestra comunidad de Discord." },
+      { title: "Z3R0NULL — Créditos Infinitos en Lovable" },
+      { name: "description", content: "Extensión que te da créditos infinitos en Lovable. Descárgala por $15/mes y únete al Discord." },
+      { property: "og:title", content: "Z3R0NULL — Créditos Infinitos en Lovable" },
+      { property: "og:description", content: "Extensión que te da créditos infinitos en Lovable. Descárgala por $15/mes y únete al Discord." },
     ],
   }),
   component: Landing,
@@ -24,21 +23,35 @@ const T = {
   es: {
     nav_pricing: "Precios",
     nav_tutorial: "Tutorial",
-    hero_title: "Potencia tu navegador",
-    hero_desc: "Una extensión simple y poderosa para llevar tu productividad al siguiente nivel.",
+    nav_features: "Características",
+    hero_badge: "Extensión para Lovable",
+    hero_title: "Créditos Infinitos en Lovable",
+    hero_desc: "Construye sin límites. Una extensión simple que desbloquea créditos infinitos en Lovable para que sigas creando sin parar.",
     btn_download: "Descargar extensión",
     btn_discord: "Unirme al Discord",
+    features_title: "Todo lo que necesitas",
+    features_desc: "Pensada para creadores que no quieren detenerse por un contador.",
+    feat_a_t: "Créditos infinitos",
+    feat_a_d: "Genera, itera y prueba sin preocuparte por el límite mensual.",
+    feat_b_t: "Instalación en 1 minuto",
+    feat_b_d: "Descarga, descomprime y listo. Sin configuraciones complicadas.",
+    feat_c_t: "Segura y discreta",
+    feat_c_d: "Funciona localmente en tu navegador, sin tocar tu cuenta.",
+    feat_d_t: "Actualizaciones constantes",
+    feat_d_d: "Mejoras frecuentes para mantenerse al día con Lovable.",
     install_title: "Tutorial de instalación",
     install_desc: "Aprende a instalar la extensión en 1 minuto.",
     usage_title: "Tutorial de uso",
     usage_desc: "Descubre cómo sacarle el máximo provecho a la extensión.",
+    tutorial_section_title: "Cómo funciona",
+    tutorial_section_desc: "Mira los videos y empieza en minutos.",
     pricing_title: "Precio simple",
     pricing_desc: "Un solo plan. Todo incluido.",
     plan_label: "Plan único",
     per_month: "/mes",
-    feat_1: "Acceso completo a la extensión",
+    feat_1: "Créditos infinitos en Lovable",
     feat_2: "Actualizaciones incluidas",
-    feat_3: "Soporte en Discord",
+    feat_3: "Soporte directo en Discord",
     feat_4: "Cancela cuando quieras",
     cta: "Empezar ahora",
     footer: "Todos los derechos reservados.",
@@ -47,21 +60,35 @@ const T = {
   en: {
     nav_pricing: "Pricing",
     nav_tutorial: "Tutorial",
-    hero_title: "Supercharge your browser",
-    hero_desc: "A simple and powerful extension to take your productivity to the next level.",
+    nav_features: "Features",
+    hero_badge: "Extension for Lovable",
+    hero_title: "Unlimited Credits on Lovable",
+    hero_desc: "Build without limits. A simple extension that unlocks unlimited credits on Lovable so you can keep creating non-stop.",
     btn_download: "Download extension",
     btn_discord: "Join the Discord",
+    features_title: "Everything you need",
+    features_desc: "Made for builders who don't want to stop because of a counter.",
+    feat_a_t: "Unlimited credits",
+    feat_a_d: "Generate, iterate and test without worrying about the monthly cap.",
+    feat_b_t: "1-minute install",
+    feat_b_d: "Download, unzip and you're done. No complex setup.",
+    feat_c_t: "Safe & discreet",
+    feat_c_d: "Runs locally in your browser, without touching your account.",
+    feat_d_t: "Frequent updates",
+    feat_d_d: "Regular improvements to stay up to date with Lovable.",
     install_title: "Installation tutorial",
     install_desc: "Learn how to install the extension in 1 minute.",
     usage_title: "Usage tutorial",
     usage_desc: "Discover how to get the most out of the extension.",
+    tutorial_section_title: "How it works",
+    tutorial_section_desc: "Watch the videos and get started in minutes.",
     pricing_title: "Simple pricing",
     pricing_desc: "One plan. Everything included.",
     plan_label: "Single plan",
     per_month: "/mo",
-    feat_1: "Full access to the extension",
+    feat_1: "Unlimited credits on Lovable",
     feat_2: "Updates included",
-    feat_3: "Discord support",
+    feat_3: "Direct support on Discord",
     feat_4: "Cancel anytime",
     cta: "Get started",
     footer: "All rights reserved.",
@@ -101,10 +128,15 @@ function Landing() {
       <header className="border-b border-border bg-background">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <div className="flex items-center gap-2">
-            <img src={Z_LOGO_URL} alt="Z3R0NULL" className="h-9 w-9 rounded-full" />
-            <span className="text-lg font-semibold">Z3R0NULL</span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <InfinityIcon className="h-6 w-6" strokeWidth={2.5} />
+            </span>
+            <span className="text-lg font-semibold">Lovable</span>
           </div>
           <nav className="flex items-center gap-5">
+            <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {t.nav_features}
+            </a>
             <a href="#tutorial" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               {t.nav_tutorial}
             </a>
@@ -124,6 +156,10 @@ function Landing() {
 
       <main>
         <section className="mx-auto max-w-5xl px-6 pt-24 pb-20 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground mb-6">
+            <InfinityIcon className="h-5 w-5" strokeWidth={2.5} />
+            {t.hero_badge}
+          </div>
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.15] pb-2 text-foreground">
             {t.hero_title}
           </h1>
@@ -152,11 +188,38 @@ function Landing() {
           </div>
         </section>
 
+        <section id="features" className="mx-auto max-w-5xl px-6 pb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.features_title}</h2>
+            <p className="mt-3 text-muted-foreground">{t.features_desc}</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {[
+              { Icon: InfinityIcon, t: t.feat_a_t, d: t.feat_a_d },
+              { Icon: Zap, t: t.feat_b_t, d: t.feat_b_d },
+              { Icon: ShieldCheck, t: t.feat_c_t, d: t.feat_c_d },
+              { Icon: Rocket, t: t.feat_d_t, d: t.feat_d_d },
+            ].map(({ Icon, t: ft, d }) => (
+              <div key={ft} className="rounded-2xl border border-border bg-card p-6 text-card-foreground">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{ft}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section id="tutorial" className="mx-auto max-w-6xl px-6 pb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.tutorial_section_title}</h2>
+            <p className="mt-3 text-muted-foreground">{t.tutorial_section_desc}</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <div className="text-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{t.install_title}</h2>
+                <h3 className="text-2xl font-bold tracking-tight">{t.install_title}</h3>
                 <p className="mt-2 text-muted-foreground">{t.install_desc}</p>
               </div>
               <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-card shadow-sm" style={{ paddingTop: "56.25%" }}>
@@ -171,7 +234,7 @@ function Landing() {
             </div>
             <div>
               <div className="text-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{t.usage_title}</h2>
+                <h3 className="text-2xl font-bold tracking-tight">{t.usage_title}</h3>
                 <p className="mt-2 text-muted-foreground">{t.usage_desc}</p>
               </div>
               <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-card shadow-sm" style={{ paddingTop: "56.25%" }}>
@@ -221,7 +284,7 @@ function Landing() {
 
       <footer className="border-t border-border">
         <div className="mx-auto max-w-5xl px-6 py-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} MiExtensión. {t.footer}
+          © {new Date().getFullYear()} Z3R0NULL. {t.footer}
         </div>
       </footer>
     </div>

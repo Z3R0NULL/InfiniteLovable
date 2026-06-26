@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-const Z_LOGO_URL = "/z-logo.png";
+const FAVICON_URL = "/favicon.svg";
 
 function NotFoundComponent() {
   return (
@@ -92,8 +92,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/png", href: Z_LOGO_URL },
-      { rel: "apple-touch-icon", href: Z_LOGO_URL },
+      { rel: "icon", type: "image/svg+xml", href: FAVICON_URL },
+      { rel: "apple-touch-icon", href: FAVICON_URL },
     ],
   }),
   shellComponent: RootShell,
