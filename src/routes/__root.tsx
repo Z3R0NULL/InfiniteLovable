@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import zLogo from "../assets/z-logo.png.asset.json";
+const Z_LOGO_URL = "/z-logo.png";
 
 function NotFoundComponent() {
   return (
@@ -92,8 +92,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/png", href: zLogo.url },
-      { rel: "apple-touch-icon", href: zLogo.url },
+      { rel: "icon", type: "image/png", href: Z_LOGO_URL },
+      { rel: "apple-touch-icon", href: Z_LOGO_URL },
     ],
   }),
   shellComponent: RootShell,

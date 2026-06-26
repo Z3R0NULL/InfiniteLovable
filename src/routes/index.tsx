@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Download, MessageCircle } from "lucide-react";
-import extensionDownload from "@/assets/extension-download.rar.asset.json";
-import zLogo from "@/assets/z-logo.png.asset.json";
+const Z_LOGO_URL = "/z-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,7 +15,7 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const DOWNLOAD_URL = extensionDownload.url;
+const DOWNLOAD_URL = "/Z3R0NULL_Lovable_Latest_Version.rar";
 const DISCORD_URL = "https://discord.com/invite/yHYMRqWe7Q";
 
 type Lang = "es" | "en";
@@ -102,7 +101,7 @@ function Landing() {
       <header className="border-b border-border bg-background">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <div className="flex items-center gap-2">
-            <img src={zLogo.url} alt="Z3R0NULL" className="h-9 w-9 rounded-full" />
+            <img src={Z_LOGO_URL} alt="Z3R0NULL" className="h-9 w-9 rounded-full" />
             <span className="text-lg font-semibold">Z3R0NULL</span>
           </div>
           <nav className="flex items-center gap-5">
@@ -135,7 +134,7 @@ function Landing() {
           <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href={DOWNLOAD_URL}
-              download={extensionDownload.original_filename}
+              download="Z3R0NULL_Lovable_Latest_Version.rar"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
             >
               <Download className="h-5 w-5" />
