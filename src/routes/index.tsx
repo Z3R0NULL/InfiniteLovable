@@ -124,11 +124,11 @@ function Landing() {
       return next;
     });
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border bg-background">
+    <div className="min-h-screen text-foreground">
+      <header className="border-b border-border/60 backdrop-blur-md bg-background/70 sticky top-0 z-50">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-brand text-white shadow-md">
               <InfinityIcon className="h-6 w-6" strokeWidth={2.5} />
             </span>
             <span className="text-lg font-semibold">Lovable</span>
@@ -156,11 +156,11 @@ function Landing() {
 
       <main>
         <section className="mx-auto max-w-5xl px-6 pt-24 pb-20 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/70 backdrop-blur px-3 py-1 text-xs font-medium text-primary mb-6 shadow-sm">
             <InfinityIcon className="h-5 w-5" strokeWidth={2.5} />
             {t.hero_badge}
           </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.15] pb-2 text-foreground">
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.15] pb-2 text-gradient-brand">
             {t.hero_title}
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -171,7 +171,7 @@ function Landing() {
             <a
               href={DOWNLOAD_URL}
               download="Z3R0NULL_Lovable_Latest_Version.rar"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-brand px-6 py-3 text-base font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5 transition-all"
             >
               <Download className="h-5 w-5" />
               {t.btn_download}
@@ -180,7 +180,7 @@ function Landing() {
               href={DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-secondary px-6 py-3 text-base font-medium text-secondary-foreground hover:bg-accent transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-white/80 backdrop-blur px-6 py-3 text-base font-medium text-secondary-foreground hover:bg-white transition-colors"
             >
               <MessageCircle className="h-5 w-5" />
               {t.btn_discord}
@@ -200,8 +200,8 @@ function Landing() {
               { Icon: ShieldCheck, t: t.feat_c_t, d: t.feat_c_d },
               { Icon: Rocket, t: t.feat_d_t, d: t.feat_d_d },
             ].map(({ Icon, t: ft, d }) => (
-              <div key={ft} className="rounded-2xl border border-border bg-card p-6 text-card-foreground">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <div key={ft} className="group rounded-2xl border border-border bg-card/80 backdrop-blur p-6 text-card-foreground shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/30 transition-all">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-brand text-white shadow-md">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold">{ft}</h3>
@@ -256,28 +256,31 @@ function Landing() {
             <p className="mt-3 text-muted-foreground">{t.pricing_desc}</p>
           </div>
 
-          <div className="mx-auto max-w-sm rounded-2xl border border-border bg-card p-8 shadow-sm text-card-foreground">
-            <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
-              {t.plan_label}
+          <div className="relative mx-auto max-w-sm">
+            <div aria-hidden className="absolute -inset-0.5 rounded-2xl bg-gradient-brand opacity-60 blur-md" />
+            <div className="relative rounded-2xl border border-border bg-card p-8 shadow-xl text-card-foreground">
+              <div className="text-sm font-medium text-primary uppercase tracking-wide">
+                {t.plan_label}
+              </div>
+              <div className="mt-4 flex items-baseline gap-1">
+                <span className="text-5xl font-bold text-gradient-brand">$15</span>
+                <span className="text-muted-foreground">{t.per_month}</span>
+              </div>
+              <ul className="mt-6 space-y-3 text-sm">
+                <li className="flex gap-2"><span className="text-primary">✓</span> {t.feat_1}</li>
+                <li className="flex gap-2"><span className="text-primary">✓</span> {t.feat_2}</li>
+                <li className="flex gap-2"><span className="text-primary">✓</span> {t.feat_3}</li>
+                <li className="flex gap-2"><span className="text-primary">✓</span> {t.feat_4}</li>
+              </ul>
+              <a
+                href={DISCORD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-gradient-brand px-6 py-3 text-base font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              >
+                {t.cta}
+              </a>
             </div>
-            <div className="mt-4 flex items-baseline gap-1">
-              <span className="text-5xl font-bold">$15</span>
-              <span className="text-muted-foreground">{t.per_month}</span>
-            </div>
-            <ul className="mt-6 space-y-3 text-sm">
-              <li className="flex gap-2"><span className="text-primary">✓</span> {t.feat_1}</li>
-              <li className="flex gap-2"><span className="text-primary">✓</span> {t.feat_2}</li>
-              <li className="flex gap-2"><span className="text-primary">✓</span> {t.feat_3}</li>
-              <li className="flex gap-2"><span className="text-primary">✓</span> {t.feat_4}</li>
-            </ul>
-            <a
-              href={DISCORD_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
-            >
-              {t.cta}
-            </a>
           </div>
         </section>
       </main>
